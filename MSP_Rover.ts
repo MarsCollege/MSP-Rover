@@ -68,6 +68,8 @@ enum RemoteButton {
     }
 
 enum RgbColors {
+        //% block=none
+        None = 0x000000,
         //% block=red
         Red = 0xFF0000,
         //% block=orange
@@ -235,10 +237,15 @@ namespace MSP_Rover {
 	
     /**
      * Init RGB pixels mounted on roverbit
+     * @param bright [0-100] ; eg: 50
      */
     //% blockId="roverbit_setBright" block="set board RGB Brightness %bright" group="板载RGB"
+    //% bright.min=0 bright.max=100
     //% subcategory="Rover_显示器"
     export function SetBrightness(bright: number): void {
+       if (!neoStrip) {
+            neoStrip = neopixel.create(DigitalPin.P11, 10, NeoPixelMode.RGB)
+        }
         neoStrip.setBrightness(bright);
     }
 	
@@ -687,6 +694,12 @@ namespace MSP_Rover {
     //% weight=69
     //% subcategory="Rover_传感器"
     export function RUS_04(index: RgbUltrasonics, rgb: RgbColors, effect: ColorEffect): void {
+	    if(rgb == RgbColors.Red) {
+	  	rgb = RgbColors.Green;
+             }else if(rgb == RgbColors.Green) {
+	     	rgb = RgbColors.Red;
+	     }
+	    
         let start, end;
         if (!neoStrip) {
             neoStrip = neopixel.create(DigitalPin.P11, 10, NeoPixelMode.RGB);
