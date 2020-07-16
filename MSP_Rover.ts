@@ -954,7 +954,7 @@ namespace MSP_Rover {
 
      //% blockId=AIVision_init
     //% block="AIVision_init"  
-    //% subcategory="机器视觉_AI"
+    //% subcategory="摄像头_AI"
     export function AIVisionInit(): void {
         return;
     }
