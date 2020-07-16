@@ -948,7 +948,7 @@ namespace MSP_Rover {
     //% blockId=IoT_init 
     //% block="IoT_init" 
     //% subcategory="物联网_IoT"
-    export function ObloqInit(): void {
+    export function IoTInit(): void {
         return;
     }
 
