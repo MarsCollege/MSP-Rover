@@ -883,7 +883,7 @@ namespace MSP_Rover {
             0,
             1023,
             0,
-            100
+            1000
         );
         soilmoisture = voltage;
         return Math.round(soilmoisture);
@@ -945,17 +945,17 @@ namespace MSP_Rover {
 
 
 
-    //% blockId=obloq_init 
-    //% block="obloq_init" 
+    //% blockId=IoT_init 
+    //% block="IoT_init" 
     //% subcategory="物联网_IoT"
     export function ObloqInit(): void {
         return;
     }
 
-     //% blockId=machineVision_init
-    //% block="MachineVision_init"  
+     //% blockId=AIVision_init
+    //% block="AIVision_init"  
     //% subcategory="机器视觉_AI"
-    export function MachineVisionInit(): void {
+    export function AIVisionInit(): void {
         return;
     }
     
