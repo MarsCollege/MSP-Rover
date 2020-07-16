@@ -29,7 +29,7 @@ enum class Pins{
 
 enum class RemoteButton {
       //% block=A
-      A = 0x45,
+	  A = 0x45,
       //% block=B
 	  B = 0x46,
       //% block=C
@@ -47,8 +47,8 @@ enum class RemoteButton {
       //% block=RIGHT
 	  Right = 0x09,
       //% block=DOWN
-      Down = 0x19,
-	  //% block=-
+     	 Down = 0x19,
+      //% block=-
 	  EQ = 0x0d,
       //% block=0
 	  NUM0 = 0x16,
