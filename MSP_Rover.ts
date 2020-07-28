@@ -220,7 +220,7 @@ namespace MSP_Rover {
 
     //% blockId="roverbit_clearRGB" block="clear board RGB " group="RGB 板载彩灯"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    //% subcategory="显示器_Displayer"
+    //% subcategory="Rover_显示器"
     export function ClearRgb(): void {
         neoStrip.clear();
         neoStrip.show();
@@ -230,7 +230,7 @@ namespace MSP_Rover {
      * Init RGB pixels mounted on roverbit
      */
     //% blockId="roverbit_setRgbColor" block="set board RGB %rgb color %rgbColor" group="RGB 板载彩灯"
-    //% subcategory="显示器_Displayer"
+    //% subcategory="Rover_显示器"
     export function SetColor(rgb: RGB, rgbColor: RgbColors): void {
         RgbDisplay(rgb, rgb, rgbColor);
     }
@@ -241,7 +241,7 @@ namespace MSP_Rover {
      */
     //% blockId="roverbit_setBright" block="set board RGB Brightness %bright" group="RGB 板载彩灯"
     //% bright.min=0 bright.max=100
-    //% subcategory="显示器_Displayer"
+    //% subcategory="Rover_显示器"
     export function SetBrightness(bright: number): void {
        if (!neoStrip) {
             neoStrip = neopixel.create(DigitalPin.P11, 10, NeoPixelMode.RGB)
@@ -254,7 +254,7 @@ namespace MSP_Rover {
      * Init RGB pixels mounted on roverbit
      */
     //% blockId="roverbit_rgb" block="board RGB" group="RGB 板载彩灯"
-    //% subcategory="显示器_Displayer"
+    //% subcategory="Rover_显示器"
     export function rgb(): neopixel.Strip {
         if (!neoStrip) {
             neoStrip = neopixel.create(DigitalPin.P11, 10, NeoPixelMode.RGB)
@@ -301,19 +301,19 @@ namespace MSP_Rover {
      */
 
     //% block="lcdoff"   group="LCD1602 显示屏"  
-    //% subcategory="显示器_Displayer"
+    //% subcategory="Rover_显示器"
     export function I2cLcdOff(): void {
         lcdcmd(0x08)
     }
 
     //% block="lcdclear"   group="LCD1602 显示屏"  
-    //% subcategory="显示器_Displayer"
+    //% subcategory="Rover_显示器"
     export function I2cLcdClear(): void {
         lcdcmd(0x01)
     }
 	
     //% block="showString $s|col $x|row $y"   group="LCD1602 显示屏"  
-    //% subcategory="显示器_Displayer"
+    //% subcategory="Rover_显示器"
     export function I2cLcdShowString(s: string, x: number, y: number): void {
         let a: number
         if (y > 0)
@@ -329,13 +329,13 @@ namespace MSP_Rover {
     }
 	
     //% block="lcdon"   group="LCD1602 显示屏"  
-    //% subcategory="显示器_Displayer"
+    //% subcategory="Rover_显示器"
     export function I2cLcdOn(): void {
         lcdcmd(0x0C)
     }
 	
     //% block="lcdlightoff"   group="LCD1602 显示屏" 
-    //% subcategory="显示器_Displayer" 
+    //% subcategory="Rover_显示器" 
     export function I2cLcdBacklightOff(): void {
         BK = 0
         lcdcmd(0)
@@ -343,7 +343,7 @@ namespace MSP_Rover {
 	
 	
     //% block="lcdlighton"   group="LCD1602 显示屏"  
-    //% subcategory="显示器_Displayer"
+    //% subcategory="Rover_显示器"
     export function I2cLcdBacklightOn(): void {
         BK = 8
         lcdcmd(0)
@@ -351,7 +351,7 @@ namespace MSP_Rover {
 	
 	
     //% block="LcdInit $addr" addr.defl="39"  group="LCD1602 显示屏"  
-    //% subcategory="显示器_Displayer"
+    //% subcategory="Rover_显示器"
     export function I2cLcdInit(addr: number) {
         i2cAddr = addr
         BK = 8
@@ -439,7 +439,7 @@ namespace MSP_Rover {
     //% weight=100
     //% degree.min=0 degree.max=180
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    //% subcategory="执行器_Actuator"
+    //% subcategory="Rover_执行器"
     export function Servo(index: Servos, degree: number): void {
         if (!initialized) {
             initPCA9685()
@@ -469,7 +469,7 @@ namespace MSP_Rover {
     //% speed.min=1 speed.max=10
     //% inlineInputMode=inline
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    //% subcategory="执行器_Actuator"
+    //% subcategory="Rover_执行器"
     export function Servospeed(index: Servos, degree1: number, degree2: number, speed: number): void {
         if (!initialized) {
             initPCA9685()
@@ -500,7 +500,7 @@ namespace MSP_Rover {
 
     //% blockId=roverbit_getServoDegree block="Get Servo|%index|degree "  group="Servo 舵机"
     //% weight=97
-    //% subcategory="执行器_Actuator"
+    //% subcategory="Rover_执行器"
     export function GetServoDegree(index: Servos): number {
         if (index == 0x01) {
            return servo1Degree ;
@@ -513,7 +513,7 @@ namespace MSP_Rover {
     //% weight=85
     //% speed.min=-255 speed.max=255
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    //% subcategory="执行器_Actuator"
+    //% subcategory="Rover_执行器"
     export function SportMotorRun(index: Motors, speed: number): void {
         MotorRun(index, speed);
     }
@@ -559,7 +559,7 @@ namespace MSP_Rover {
     //% speed2.min=-255 speed2.max=255
     //% inlineInputMode=inline
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    //% subcategory="执行器_Actuator"
+    //% subcategory="Rover_执行器"
     export function MotorRunDual(motor1: Motors, speed1: number, motor2: Motors, speed2: number): void {
         MotorRun(motor1, speed1);
         MotorRun(motor2, speed2);
@@ -575,7 +575,7 @@ namespace MSP_Rover {
     //% weight=81
     //% speed.min=-255 speed.max=255
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    //% subcategory="执行器_Actuator"
+    //% subcategory="Rover_执行器"
     export function SportMotorRunDelay(index: Motors, speed: number, delay: number): void {
         MotorRunDelay(index, speed, delay);
     }
@@ -592,7 +592,7 @@ namespace MSP_Rover {
     */
     //% blockId=roverbit_stop block="Sport Motor Stop|%index|" group="Motor 电机"
     //% weight=80
-    //% subcategory="执行器_Actuator"
+    //% subcategory="Rover_执行器"
     export function SportMotorStop(index: Motors): void {
         MotorStop(index);
     }
@@ -604,7 +604,7 @@ namespace MSP_Rover {
     //% blockId=roverbit_stop_all block="Motor Stop All" group="Motor 电机"
     //% weight=79
     //% blockGap=50
-    //% subcategory="执行器_Actuator"
+    //% subcategory="Rover_执行器"
     export function MotorStopAll(): void {
         if (!initialized) {
             initPCA9685()
@@ -624,7 +624,7 @@ namespace MSP_Rover {
     //% weight=78
     //% speed.min=-255 speed.max=255
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    //% subcategory="执行器_Actuator"
+    //% subcategory="Rover_执行器"
     export function ClampMotorRun(index: ClampMotors, speed: number): void {
         MotorRun(index, speed);
     }
@@ -639,7 +639,7 @@ namespace MSP_Rover {
     //% weight=77
     //% speed.min=-255 speed.max=255
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    //% subcategory="执行器_Actuator"
+    //% subcategory="Rover_执行器"
     export function ClampMotorRunDelay(index: ClampMotors, speed: number, delay: number): void {
         MotorRunDelay(index, speed, delay);
     }
@@ -651,7 +651,7 @@ namespace MSP_Rover {
     */
     //% blockId=roverbit_clamp_stop block="Clamp Motor Stop|%index|" group="Motor 电机"
     //% weight=76
-    //% subcategory="执行器_Actuator"
+    //% subcategory="Rover_执行器"
     export function ClampMotorStop(index: ClampMotors): void {
         MotorStop(index);
     }
@@ -662,7 +662,7 @@ namespace MSP_Rover {
     */
     //% blockId=roverbit_ultrasonic block="Read RgbUltrasonic Distance|pin %pin|cm" group="RGB Ultrasonic 超声波传感器"
     //% weight=70
-    //% subcategory="传感器_Sensor"
+    //% subcategory="Rover_传感器"
     export function Ultrasonic(pin: DigitalPin): number {
         // send pulse
         pins.setPull(pin, PinPullMode.PullDown); 
@@ -692,7 +692,7 @@ namespace MSP_Rover {
 
 	//% blockId="roverbit_rus04" block="RgbUltrasonic|%RgbUltrasonics|show color %rgb|effect %ColorEffect" group="RGB Ultrasonic 超声波传感器"
     //% weight=69
-    //% subcategory="传感器_Sensor"
+    //% subcategory="Rover_传感器"
     export function RUS_04(index: RgbUltrasonics, rgb: RgbColors, effect: ColorEffect): void {
 	    if(rgb == RgbColors.Red) {
 	  	rgb = RgbColors.Green;
@@ -794,9 +794,9 @@ namespace MSP_Rover {
      * @param dht11pin describe parameter here, eg: DigitalPin.P15    
      * 
      *  */
-    //% blockId="readdht11" block="value of dht11 %dht11type| at pin %dht11pin" group="DHT11 温湿度传感器"
+    //% blockId="readdht11" block="value of dht11 %dht11type| at pin %dht11pin" group="DHT11 环境温湿度传感器"
     //% weight=66
-    //% subcategory="传感器_Sensor"
+    //% subcategory="Rover_传感器"
     export function Dht11value(dht11pin: DigitalPin, dht11type: DHT11Type ): number {
         pins.digitalWritePin(dht11pin, 0)
         basic.pause(18)
@@ -872,9 +872,9 @@ namespace MSP_Rover {
      * @param soilmoisturePin describe parameter here, eg: AnalogPin.P1  
      * 
      *  */
-    //% blockId="readsoilmoisture" block="value of soil moisture(0~100) at pin %soilmoisturePin" group="Soil Moisture 土壤湿度传感器"
+    //% blockId="readsoilmoisture" block="value of soil moisture(0~100) at pin %soilmoisturePin" group="Soil Moisture 土壤含水量传感器"
     //% weight=65
-    //% subcategory="传感器_Sensor"
+    //% subcategory="Rover_传感器"
     export function ReadSoilHumidity(soilmoisturePin: AnalogPin): number {
         let voltage = 0;
         let soilmoisture = 0;
@@ -883,7 +883,7 @@ namespace MSP_Rover {
             0,
             1023,
             0,
-            1000
+            100
         );
         soilmoisture = voltage;
         return Math.round(soilmoisture);
@@ -898,7 +898,7 @@ namespace MSP_Rover {
 
     //% blockId="roverbit_humanBodySensor" block="Human body sensor get Body at pin %bodyPin" group="Human IR 人体红外传感器"
     //% weight=64
-    //% subcategory="传感器_Sensor"
+    //% subcategory="Rover_传感器"
    export function HumanBodySensor(bodyPin: DigitalPin): boolean {
         pins.digitalWritePin(bodyPin, 0)
         if (pins.digitalReadPin(bodyPin) == 1) {
@@ -915,7 +915,7 @@ namespace MSP_Rover {
      *  */
     //% blockId=rotaryPotentiometer block="rotaryPotentiometer analog pin %rotaryPin"  group="Potentiometer 旋转电位器"
     //% weight=70
-    //% subcategory="传感器_Sensor"
+    //% subcategory="Rover_传感器"
     export function RotaryPotentiometer(rotaryPin: AnalogPin): number {
         let row = pins.analogReadPin(rotaryPin)
         let V = (row / 1023) * 5
@@ -927,7 +927,7 @@ namespace MSP_Rover {
      */
     //% blockId=ir_received_left_event
     //% block="on |%btn| button pressed" shim=MSP_Rover::onPressEvent group="RC 红外遥控器"
-    //% subcategory="遥控器_RC"
+    //% subcategory="Rover_遥控器"
     export function OnPressEvent(btn: RemoteButton, body: () => void): void {
         return;
     }
@@ -938,7 +938,7 @@ namespace MSP_Rover {
      */
     //% blockId=ir_init 
     //% block="connect ir receiver to %pin" shim=MSP_Rover::init group="RC 红外遥控器"
-    //% subcategory="遥控器_RC"
+    //% subcategory="Rover_遥控器"
     export function Init(pin: IrPins): void {
         return;
     }
@@ -947,14 +947,14 @@ namespace MSP_Rover {
 
     //% blockId=IoT_init 
     //% block="IoT_init" 
-    //% subcategory="物联网_IoT"
+    //% subcategory="Rover_物联网"
     export function IoTInit(): void {
         return;
     }
 
      //% blockId=AIVision_init
     //% block="AIVision_init"  
-    //% subcategory="摄像头_AI"
+    //% subcategory="Rover_AI视觉"
     export function AIVisionInit(): void {
         return;
     }
