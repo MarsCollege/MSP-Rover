@@ -53,6 +53,7 @@
 
     "MSP_Rover.HumanBodySensor|block": " 引脚 %bodypin 检测到人体红外信号 ",
     "MSP_Rover.ReadSoilHumidity|block": " 引脚 %soilhumiditypin 获取的土壤含水量(0~100)",
+	"MSP_Rover.ReadWaterDepthSensor|block": "引脚 %waterDepthPin 获取水位模拟值(0~100)",
 
     "MSP_Rover.DHT11Type.DHT11_humidity|block": "环境湿度(0~100)",
     "MSP_Rover.DHT11Type.DHT11_temperature_C|block": "摄氏温度(℃)",
