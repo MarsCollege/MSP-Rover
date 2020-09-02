@@ -891,7 +891,7 @@ namespace MSP_Rover {
 	
 	/**
      * get water depth
-     * @param waterDepthPin describe parameter here, eg: AnalogPin.P1  
+     * @param waterDepthPin describe parameter here, eg: AnalogPin.P2  
      * 
      *  */
     //% blockId="readWaterDepthSensor" block="value of water depth(0~100) at pin %waterDepthPin" group="Water Depth 水深传感器"
