@@ -9,9 +9,9 @@
     "MSP_Rover.SportMotorStop|block": "停止运动电机|%index|",
     "MSP_Rover.MotorStopAll|block": "停止所有运动电机",
     
-    "MSP_Rover.ClampMotorRun|block": "夹持电机|%index|速度 %speed",
-    "MSP_Rover.ClampMotorRunDelay|block": "夹持电机|%index|速度 %speed|延时 %delay|s",
-    "MSP_Rover.ClampMotorStop|block": "停止夹持电机|%index|",
+    "MSP_Rover.ClampMotorRun|block": "扩展电机|%index|速度 %speed",
+    "MSP_Rover.ClampMotorRunDelay|block": "扩展电机|%index|速度 %speed|延时 %delay|s",
+    "MSP_Rover.ClampMotorStop|block": "停止扩展电机|%index|",
 
     "MSP_Rover.Ultrasonic|block": "引脚 %pin 读取RGB超声波距离(cm)",
     "RgbColors.None|block": "无",
