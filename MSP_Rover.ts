@@ -883,7 +883,7 @@ namespace MSP_Rover {
             0,
             1023,
             0,
-            100
+            99
         );
         soilmoisture = voltage;
         return Math.round(soilmoisture);
@@ -905,7 +905,7 @@ namespace MSP_Rover {
             0,
             1023,
             0,
-            100
+            99
         );
         waterDepthValue = value;
         return Math.round(waterDepthValue);
